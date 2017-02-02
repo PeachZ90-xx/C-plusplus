@@ -1,0 +1,29 @@
+# Project: personal_Info
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = 
+CC       = 
+WINDRES  = 
+OBJ      = personal_Info.o
+LINKOBJ  = personal_Info.o
+LIBS     = -g3
+INCS     =
+CXXINCS  =
+BIN      = personal_Info.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+personal_Info.o: personal_Info.cpp
+	$(CPP) -c personal_Info.cpp -o personal_Info.o $(CXXFLAGS)

@@ -1,0 +1,29 @@
+# Project: hw_PG151_11
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = 
+CC       = 
+WINDRES  = 
+OBJ      = singeword.o
+LINKOBJ  = singeword.o
+LIBS     = -g3
+INCS     =
+CXXINCS  =
+BIN      = hw_PG151_11.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+singeword.o: singeword.cpp
+	$(CPP) -c singeword.cpp -o singeword.o $(CXXFLAGS)

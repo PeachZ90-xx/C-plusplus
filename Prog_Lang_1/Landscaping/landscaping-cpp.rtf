@@ -1,0 +1,1297 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green116\blue0;\red100\green56\blue32;\red196\green26\blue22;
+\red170\green13\blue145;\red28\green0\blue207;}
+{\info
+{\author Alan Trevino}}\margl1440\margr1440\vieww12540\viewh14520\viewkind1\viewscale130
+\deftab529
+\pard\tx529\pardeftab529\pardirnatural
+
+\f0\fs22 \cf2 \CocoaLigature0 /* Alan Trevino\
+October 16, 2013\
+Tree order program.\
+\
+Pseudo code!!! =D\
+1.) Welcome and ask for name.\
+2.) How many trees?\
+3.) How tall? (Give selection)\
+4.) User chooses, calculate cost of delivery\
+5.) Ask if selection is alright.\
+	6B.) If not okay, restart\
+6.) Ask if he wants his trees planted.\
+	7.B.) If no, end program with delivery cost. \
+7.) If yes, recalculate cost, display cost and finish.\
+\
+\
+*/\cf0 \
+\
+\
+\cf3 #include \cf4 <iostream>\cf0 \
+\cf3 #include \cf4 <string>\cf0 \
+\cf3 #include \cf4 <windows.h>\cf0 \
+\cf3 #include \cf4 <cmath>\cf0 \
+\cf5 using\cf0  \cf5 namespace\cf0  std;\
+\
+\cf2 //declare\cf0 \
+string first, second, choice2, deliv_Answer, plant_Answer, extra, v_Vendetta, confirm;\
+\cf2 //double tree_one, tree_two, tree_three, tree_four, d_per_tree, del_plant, max_deliv, subtotal, total, total2, tax;\cf0 \
+\cf5 double\cf0  del_plant, total, total2, subtotal;\
+\cf5 int\cf0  tree_amount;\
+\cf5 char\cf0  choice1;\
+\
+\cf2 //Assign\cf0 \
+\cf5 double\cf0  tree_one = \cf6 39.00\cf0 ,       \cf2 // >3 feet\cf0 \
+		tree_two = \cf6 69.00\cf0 ,       \cf2 // 3 to 5 feet\cf0 \
+		tree_three = \cf6 99.00\cf0 ,    \cf2 // 6 to 8 feet\cf0 \
+		tree_four = \cf6 199.00\cf0 ,   \cf2 // over 8 feet\cf0 \
+		d_per_tree = \cf6 20.00\cf0 ,     \cf2 // price per tree under\cf0 \
+		max_deliv = \cf6 100.00\cf0 ,     \cf2 // Max price for Delivery.\cf0 \
+		tax = \cf6 1.0825\cf0 ;           \cf2 //Tax for Texas\cf0 \
+\
+\
+\cf5 void\cf0  drugs()\
+\{\
+    cout<< \cf4 "Give me a second...\\n\\n\\n"\cf0 ;\
+    Sleep(\cf6 1000\cf0 );\
+    system (\cf4 "cls"\cf0 );\
+    cout<< \cf4 "Remember remember the Fifth of November"\cf0 ;\
+    cout<< \cf4 "\\nGunpowder, treason and plot."\cf0 ;\
+    cout<< \cf4 "\\nI know of no reason why gunpowder, treason"\cf0 ;\
+    cout<< \cf4 "\\nShould ever be . . . \\n\\n\\n"\cf0 ;\
+    Sleep(\cf6 5000\cf0 );\
+    cout<< \cf4 "Finish it.\\n"\cf0 ;\
+    cin>> v_Vendetta;\
+    \
+    \cf2 //HADUOKEN!!!!!!\cf0 \
+    \cf5 if\cf0  (v_Vendetta != \cf4 "forgot"\cf0 )\
+        \{\
+            cout<< \cf4 "Thank you! Come again!!!"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+        \}\
+    \
+    \cf2 //Congrats. You passed.\cf0 \
+    \cf5 if\cf0  (v_Vendetta == \cf4 "forgot"\cf0 )\{\
+        cout<< \cf4 "We sell drugs here every other \\nThursday and Tuesday."\cf0 ;\
+        system(\cf4 "pause"\cf0 );\
+        Sleep(\cf6 400\cf0 );\
+        cout<< \cf4 " But never in the same week."\cf0 ;\
+        Sleep(\cf6 400\cf0 );\
+		cout<< \cf4 "\\nIf you are interested in that \\n"\cf0 ;\
+        cout<< \cf4 "come back later."\cf0 ;\
+        Sleep(\cf6 800\cf0 );\
+        cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 800\cf0 );\
+        cout<< \cf4 ". "\cf0 ;\
+        Sleep(\cf6 800\cf0 );\
+        cout<< \cf4 ". \\n"\cf0 ;\
+        cout<< \cf4 "Please quit."\cf0 ;\
+        system(\cf4 "pause"\cf0 );\
+        \}\
+\}\
+\
+\
+\
+\
+\
+\
+\
+\
+\cf2 /**********************************\
+ *******TREE ONE CALCULATION*******\
+ ***********************************/\cf0 \
+\cf5 void\cf0  tree_One()\
+\{\
+	\
+	system(\cf4 "cls"\cf0 );\
+    \cf2 //REPEAT IF NO CONFIRMATON\cf0 \
+    \cf5 while\cf0  (confirm != \cf4 "yes"\cf0  && confirm != \cf4 "Yes"\cf0  && confirm != \cf4 "y"\cf0  && confirm != \cf4 "Y"\cf0 )\
+    \{\
+        cout<< \cf4 "Alrighty then! You want the trees that are under 3 feet tall.\\n"\cf0 ;\
+        cout<< \cf4 "These trees cost $39.00 per tree.\\n"\cf0 ;\
+        cout<< \cf4 "How many do you need?\\n"\cf0 ;\
+        cin>> tree_amount;\
+        \
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". \\n\\n"\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+    \
+        cout<< \cf4 "So, you want "\cf0  << tree_amount << \cf4 " trees under 3 feet tall?\\n"\cf0 ;\
+        cin>> confirm;\
+        \
+        cout<< \cf4 "\\nYou sure?\\n"\cf0 ;\
+        cin>> confirm;\
+    \}\
+    \
+    system (\cf4 "cls"\cf0 );\
+    cout<< \cf4 "Perfect, let me calculate everything.\\n"\cf0 ;\
+    \
+    \cf2 //calculate\cf0 \
+    subtotal=tree_one*tree_amount;\
+    total=subtotal*tax;\
+    \
+    Sleep(\cf6 500\cf0 );\
+    cout<< \cf4 "\\n. "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". \\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 "Alright, here is the total so far...\\n\\n\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+    \
+    \cf2 //**********************************CALCULATION\cf0 \
+    cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_one;\
+    cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+    cout<<\cf4 "\\n                           _________"\cf0 ;\
+    cout<<\cf4 "\\n\\nSubtotal                   $"\cf0  <<subtotal;\
+    cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+    cout<<\cf4 "\\n                           _________"\cf0 ;\
+    cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+    \
+    \
+    \cf2 //***********************************************DELIVERY\cf0 \
+    cout<< \cf4 "\\n\\nWould you like for us to deliver your order?\\n"\cf0 ;\
+    cin>> deliv_Answer;\
+    \
+    \cf2 //Self haduoken?!?!?!???\cf0 \
+    \cf5 if\cf0  (deliv_Answer == \cf4 "No"\cf0  || deliv_Answer == \cf4 "no"\cf0 )\
+    \{\
+        cout<< \cf4 "\\n\\nThank you for shopping with us.\\n"\cf0 ;\
+        cout<< \cf4 "We hope you have a wonderful day!\\n"\cf0 ;\
+        Sleep(\cf6 500\cf0 );\
+       	cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 500\cf0 );\
+    	cout<< \cf4 ". "\cf0 ;\
+       	Sleep(\cf6 500\cf0 );\
+		cout<< \cf4 ". \\n"\cf0 ;\
+   	    cout<< \cf4 "Please quit."\cf0 ;\
+        system(\cf4 "pause"\cf0 );\
+	\}\
+    \
+    \cf5 if\cf0 (deliv_Answer==\cf4 "yes"\cf0 ||deliv_Answer==\cf4 "Yes"\cf0 )\
+    \{\
+        system(\cf4 "cls"\cf0 );\
+		Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "Great we will deliver these for you.\\n\\n"\cf0 ;\
+        \
+        \cf5 if\cf0  (tree_amount >=\cf6 5\cf0 )\
+        \{\
+        	system(\cf4 "cls"\cf0 );\
+            cout<< \cf4 "Because you are ordering more than 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "deliver cost will be $100.00 flat.\\n"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright, here is the total for your delivery.\\n\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_one*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal+max_deliv;				\cf2 //tree cost with delivery\cf0 \
+            total=total2*tax;					\cf2 //total with tax \cf0 \
+            \
+            \cf2 //************************************CALCULATION WITH MAX DELIVERY\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_one;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<max_deliv;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \cf5 if\cf0  (tree_amount <=\cf6 5\cf0 )\
+        \{\
+            system(\cf4 "cls"\cf0 );\
+			cout<< \cf4 "\\nBecause you are ordering under 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "delivery cost will be $20.00 per tree."\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "\\nAlright, here is the total for your delivery\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_one*tree_amount;\
+            total2=subtotal+d_per_tree;\
+            total=subtotal*tax;\
+            \
+            \cf2 //*******************CALCULATION WITH MAX DELIVERY*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_one;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \
+    \}\
+    \
+        cout<< \cf4 "\\n\\nWould you like for us to plant your order as well?\\n"\cf0 ;\
+        cin>> plant_Answer;\
+        \
+        \cf2 //FINISH THEM!!!!\cf0 \
+        \cf5 if\cf0 (plant_Answer==\cf4 "no"\cf0 ||plant_Answer==\cf4 "No"\cf0 )\
+        \{\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\nAlright, than just pay when you are ready.\\n"\cf0 ;\
+        	cout<< \cf4 "Thank you for choosing Green Fields Landscaping.\\n\\n"\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+        \}\
+        \
+        \
+        \
+        \cf2 //*********************************************PLANT\cf0 \
+        \cf5 if\cf0 (plant_Answer==\cf4 "yes"\cf0 ||plant_Answer==\cf4 "Yes"\cf0 )\
+        \{\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+        	system(\cf4 "cls"\cf0 );\
+        	Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright. Let me begin to calculate the cost of everything.\\n\\n"\cf0 ;\
+            \
+            \
+            \
+            \
+            subtotal=tree_one*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal*\cf6 1.50\cf0 ;					\cf2 //tree cost with delivery & Planting\cf0 \
+            total=total2*tax;					\cf2 //total with tax \cf0 \
+            \
+            \
+            \
+            \cf2 //*******************CALCULATION WITH DELIVERY AND PLANTING*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_one;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery & Planting        $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+            \
+            \
+            cout<<\cf4 "\\n\\nThis is your final total. Please pay us promptly to enjoy your new trees.\\n"\cf0 ;\
+            cout<<\cf4 "Thank you for choosing Green Fields Landscaping!"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+        \}\
+\}\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cf2 /**********************************\
+ *******TREE TWO CALCULATION*******\
+ ***********************************/\cf0 \
+\
+\cf5 void\cf0  tree_Two()\
+\{\
+	\
+	system (\cf4 "cls"\cf0 );\
+    \cf2 //REPEAT IF NO CONFIRMATON\cf0 \
+    \cf5 while\cf0  (confirm != \cf4 "yes"\cf0  && confirm != \cf4 "Yes"\cf0  && confirm != \cf4 "y"\cf0  && confirm != \cf4 "Y"\cf0 )\
+    \{\
+        cout<< \cf4 "Alrighty then! You want the trees that are 3 to 5 feet tall.\\n"\cf0 ;\
+        cout<< \cf4 "These trees cost $69.00 per tree.\\n"\cf0 ;\
+        cout<< \cf4 "How many do you need?\\n"\cf0 ;\
+        cin>> tree_amount;\
+        \
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". \\n\\n"\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+    \
+        cout<< \cf4 "So, you want "\cf0  << tree_amount << \cf4 "trees 3 to 5 feet tall?\\n"\cf0 ;\
+        cin>> confirm;\
+        \
+        cout<< \cf4 "\\nYou sure?\\n"\cf0 ;\
+        cin>> confirm;\
+    \}\
+    \
+    system (\cf4 "cls"\cf0 );\
+    cout<< \cf4 "Perfect, let me calculate everything.\\n"\cf0 ;\
+    \
+    \cf2 //calculate\cf0 \
+    subtotal=tree_two*tree_amount;\
+    total=subtotal*tax;\
+    \
+    Sleep(\cf6 500\cf0 );\
+    cout<< \cf4 "\\n. "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". \\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 "Alright, here is the total so far...\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+    \
+    \cf2 //**********************************CALCULATION\cf0 \
+    cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_two;\
+    cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+    cout<<\cf4 "\\n                           _________"\cf0 ;\
+    cout<<\cf4 "\\n\\nSubtotal                 $"\cf0  <<subtotal;\
+    cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+    cout<<\cf4 "\\n                           _________"\cf0 ;\
+    cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+    \
+    \
+    \cf2 //***********************************************DELIVERY\cf0 \
+    cout<< \cf4 "\\nWould you like for us to deliver your order?"\cf0 ;\
+    cin>> deliv_Answer;\
+    \
+    \cf2 //Self haduoken?!?!?!???\cf0 \
+    \cf5 if\cf0  (deliv_Answer == \cf4 "No"\cf0  || deliv_Answer == \cf4 "no"\cf0 )\
+    \{\
+        cout<< \cf4 "\\n\\nThank you for shopping with us.\\n"\cf0 ;\
+        cout<< \cf4 "We hope you have a wonderful day!\\n"\cf0 ;\
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "\\n. "\cf0 ;\
+	    Sleep(\cf6 500\cf0 );\
+	    cout<< \cf4 ". "\cf0 ;\
+       	Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 ". \\n"\cf0 ;\
+   	    cout<< \cf4 "Please quit."\cf0 ;\
+       	system(\cf4 "pause"\cf0 );\}\
+    \
+    \cf5 if\cf0 (deliv_Answer==\cf4 "yes"\cf0 ||deliv_Answer==\cf4 "Yes"\cf0 )\
+    \{\
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "Great we will deliver these for you.\\n\\n"\cf0 ;\
+        \
+        \cf5 if\cf0  (tree_amount >=\cf6 5\cf0 )\
+        \{\
+        	system(\cf4 "cls"\cf0 );\
+            cout<< \cf4 "Because you are ordering more than 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "deliver cost will be $100.00 flat.\\n\\n"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright, here is the total for your delivery.\\n\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_two*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal+max_deliv;				\cf2 //tree cost with delivery\cf0 \
+            total=total2*tax;					\cf2 //total with tax \cf0 \
+            \
+            \cf2 //************************************CALCULATION WITH MAX DELIVERY\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_two;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<max_deliv;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \cf5 if\cf0  (tree_amount <=\cf6 5\cf0 )\
+        \{\
+            system(\cf4 "cls"\cf0 );\
+			cout<< \cf4 "\\nBecause you are ordering under 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "delivery cost will be $20.00 per tree."\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "\\nAlright, here is the total for your delivery\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_two*tree_amount;\
+            total2=subtotal+d_per_tree;\
+            total=subtotal*tax;\
+            \
+            \cf2 //*******************CALCULATION WITH MAX DELIVERY*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_two;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \
+    \}\
+    \
+        cout<< \cf4 "Would you like for us to plant your order as well?"\cf0 ;\
+        cin>> plant_Answer;\
+        \
+        \cf2 //FINISH THEM!!!!\cf0 \
+        \cf5 if\cf0 (plant_Answer==\cf4 "No"\cf0 ||plant_Answer==\cf4 "No"\cf0 )\
+        \{\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "Alright, than just pay when you are ready.\\n"\cf0 ;\
+        	cout<< \cf4 "Thank you for choosing Green Fields Landscaping.\\n\\n"\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+        \}\
+        \
+        \
+        \
+        \cf2 //*********************************************PLANT\cf0 \
+        \cf5 if\cf0 (plant_Answer==\cf4 "yes"\cf0 ||plant_Answer==\cf4 "Yes"\cf0 )\
+        \{\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+        	system(\cf4 "cls"\cf0 );\
+        	Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright. Let me begin to calculate the cost of everything.\\n"\cf0 ;\
+            \
+            \
+            \
+            \
+            subtotal=tree_two*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal*\cf6 1.50\cf0 ;				\cf2 //tree cost with delivery & Planting\cf0 \
+            total=total2*tax;					\cf2 //total with tax \cf0 \
+            \
+            \
+            \
+            \cf2 //*******************CALCULATION WITH DELIVERY AND PLANTING*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_two;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery & Planting        $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+            \
+            \
+            cout<<\cf4 "\\n\\nThis is your final total. Please pay us promptly to"\cf0  <<\cf4 "\\nenjoy your new trees.\\n"\cf0 ;\
+            cout<<\cf4 "Thank you for choosing Green Fields Landscaping!"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+        \}\
+\}\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cf2 /************************************\
+ *******TREE THREE CALCULATION*******\
+ *************************************/\cf0 \
+\cf5 void\cf0  tree_Three()\
+\{\
+	\
+	system (\cf4 "cls"\cf0 );\
+    \cf2 //REPEAT IF NO CONFIRMATON\cf0 \
+    \cf5 while\cf0  (confirm != \cf4 "yes"\cf0  && confirm != \cf4 "Yes"\cf0  && confirm != \cf4 "y"\cf0  && confirm != \cf4 "Y"\cf0 )\
+    \{\
+        cout<< \cf4 "Alrighty then! You want the trees that are 6 to 8 feet tall.\\n"\cf0 ;\
+        cout<< \cf4 "These trees cost $99.00 per tree.\\n"\cf0 ;\
+        cout<< \cf4 "How many do you need?\\n"\cf0 ;\
+        cin>> tree_amount;\
+        \
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". \\n\\n"\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+    \
+        cout<< \cf4 "So, you want "\cf0  << tree_amount << \cf4 " trees that are 6 to 8 feet tall?\\n"\cf0 ;\
+        cin>> confirm;\
+        \
+        cout<< \cf4 "\\nYou sure?\\n"\cf0 ;\
+        cin>> confirm;\
+    \}\
+    \
+    system (\cf4 "cls"\cf0 );\
+    cout<< \cf4 "Perfect, let me calculate everything.\\n"\cf0 ;\
+    \
+    \cf2 //calculate\cf0 \
+    subtotal=tree_three*tree_amount;\
+    total=subtotal*tax;\
+    \
+    Sleep(\cf6 500\cf0 );\
+    cout<< \cf4 "\\n. "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". \\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 "Alright, here is the total so far...\\n\\n\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+    \
+    \cf2 //**********************************CALCULATION\cf0 \
+    cout<<\cf4 "\\nTree cost			$"\cf0  <<tree_three;\
+    cout<<\cf4 "\\nAmount of Trees			"\cf0  <<tree_amount;\
+    cout<<\cf4 "\\n				___________"\cf0 ;\
+    cout<<\cf4 "\\n\\nSubtotal			$"\cf0  <<subtotal;\
+    cout<<\cf4 "\\nTax				$"\cf0  <<tax;\
+    cout<<\cf4 "\\n				___________"\cf0 ;\
+    cout<<\cf4 "\\nTotal				$"\cf0  <<total;\
+	\
+    \
+    \cf2 //***********************************************DELIVERY\cf0 \
+    cout<< \cf4 "\\n\\nWould you like for us to deliver your order?\\n"\cf0 ;\
+    cin>> deliv_Answer;\
+    \
+    \
+    \
+    \cf5 if\cf0 (deliv_Answer==\cf4 "yes"\cf0  || deliv_Answer==\cf4 "Yes"\cf0 )\
+    \{\
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "Great we will deliver these for you.\\n\\n"\cf0 ;\
+        \
+        \cf2 //********************MAX DELIVERY*********************\cf0 \
+        \cf5 if\cf0  (tree_amount >=\cf6 5\cf0 )\
+        \{\
+        	system(\cf4 "cls"\cf0 );\
+            cout<< \cf4 "Because you are ordering more than 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "deliver cost will be $100.00 flat.\\n\\n"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright, here is the total for your delivery\\n."\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_three*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal+max_deliv;				\cf2 //tree cost with delivery\cf0 \
+            total=total2*tax;					\cf2 //total with tax \cf0 \
+            \
+            \cf2 //************************************CALCULATION WITH MAX DELIVERY\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_three;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<max_deliv;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \
+        \cf2 //*********************************REGULAR DELIVERY!***************************\cf0 \
+        \cf5 if\cf0  (tree_amount <=\cf6 5\cf0 )\
+        \{\
+        	system(\cf4 "cls"\cf0 );\
+			cout<< \cf4 "\\nBecause you are ordering under 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "delivery cost will be $20.00 per tree."\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "\\nAlright, here is the total for your delivery\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_three*tree_amount;\
+            total2=subtotal+d_per_tree;\
+            total=subtotal*tax;\
+            \
+            \cf2 //*******************CALCULATION WITH MAX DELIVERY*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_three;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \
+    \}\
+    \
+    \cf2 //Self haduoken?!?!?!???\cf0 \
+    \cf5 if\cf0  (deliv_Answer == \cf4 "no"\cf0  || deliv_Answer == \cf4 "No"\cf0 )\
+    \{\
+        cout<< \cf4 "\\n\\nThank you for shopping with us.\\n"\cf0 ;\
+        cout<< \cf4 "We hope you have a wonderful day!\\n"\cf0 ;\
+		Sleep(\cf6 500\cf0 );\
+       	cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 500\cf0 );\
+   	    cout<< \cf4 ". "\cf0 ;\
+       	Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 ". \\n"\cf0 ;\
+   	    cout<< \cf4 "Please quit."\cf0 ;\
+       	system(\cf4 "pause"\cf0 );\}\
+    \
+        cout<< \cf4 "\\nWould you like for us to plant your order as well?"\cf0 ;\
+        cin>> plant_Answer;\
+        \
+        \cf2 //FINISH THEM!!!!\cf0 \
+        \cf5 if\cf0 (plant_Answer!=\cf4 "yes"\cf0 ||plant_Answer!=\cf4 "Yes"\cf0 )\
+        \{\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "Alright, than just pay when you are ready.\\n"\cf0 ;\
+        	cout<< \cf4 "Thank you for choosing Green Fields Landscaping.\\n\\n"\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+        \}\
+        \
+        \
+        \
+        \cf2 //*********************************************PLANT\cf0 \
+        \cf5 if\cf0 (plant_Answer==\cf4 "yes"\cf0 ||plant_Answer==\cf4 "Yes"\cf0 )\
+        \{\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+        	system(\cf4 "cls"\cf0 );\
+        	Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright. Let me begin to calculate the cost of everything.\\n\\n"\cf0 ;\
+            \
+            \
+            \
+            \
+            subtotal=tree_three*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal*\cf6 1.5\cf0 ;					\cf2 //tree cost with delivery & Planting\cf0 \
+            total=total2*tax;						\cf2 //total with tax \cf0 \
+            \
+            \
+            \
+            \cf2 //*******************CALCULATION WITH DELIVERY AND PLANTING*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_three;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery & Planting        $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+            \
+            \
+            cout<<\cf4 "\\n\\nThis is your final total. Please pay us promptly to"\cf0  <<\cf4 "\\nenjoy your new trees.\\n"\cf0 ;\
+            cout<<\cf4 "Thank you for choosing Green Fields Landscaping!"\cf0 ;\\\
+            Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+		\}\
+\}\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cf2 /***********************************\
+ *******TREE FOUR CALCULATION*******\
+ ************************************/\cf0 \
+\cf5 void\cf0  tree_Four()\
+\{\
+	\
+	system (\cf4 "cls"\cf0 );\
+    \cf2 //REPEAT IF NO CONFIRMATON\cf0 \
+    \cf5 while\cf0  (confirm != \cf4 "yes"\cf0  && confirm != \cf4 "Yes"\cf0  && confirm != \cf4 "y"\cf0  && confirm != \cf4 "Y"\cf0 )\
+    \{\
+        cout<< \cf4 "Alrighty then! You want the trees that are over 8 feet tall.\\n"\cf0 ;\
+        cout<< \cf4 "These trees cost $199.00 per tree.\\n"\cf0 ;\
+        cout<< \cf4 "How many do you need?\\n"\cf0 ;\
+        cin>> tree_amount;\
+        \
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". "\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+        cout<< \cf4 ". \\n\\n"\cf0 ;\
+        Sleep(\cf6 300\cf0 );\
+    \
+        cout<< \cf4 "So, you want "\cf0  << tree_amount << \cf4 " trees over 8 feet tall?\\n"\cf0 ;\
+        cin>> confirm;\
+        \
+        \
+        cout<< \cf4 "\\nYou sure?\\n"\cf0 ;\
+        cin>> confirm;\
+    \}\
+    \
+    system (\cf4 "cls"\cf0 );\
+    cout<< \cf4 "Perfect, let me calculate everything.\\n"\cf0 ;\
+    \
+    \cf2 //calculate\cf0 \
+    subtotal=tree_four*tree_amount;\
+    total=subtotal*tax;\
+    \
+    Sleep(\cf6 500\cf0 );\
+    cout<< \cf4 "\\n. "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". "\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 ". \\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 "Alright, here is the total so far...\\n\\n\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+    \
+    \cf2 //**********************************CALCULATION\cf0 \
+    cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_four;\
+    cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+    cout<<\cf4 "\\n                           _________"\cf0 ;\
+    cout<<\cf4 "\\n\\nSubtotal                   $"\cf0  <<subtotal;\
+    cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+    cout<<\cf4 "\\n                           _________"\cf0 ;\
+    cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+    \
+    \
+    \cf2 //***********************************************DELIVERY\cf0 \
+    cout<< \cf4 "\\n\\nWould you like for us to deliver your order?\\n"\cf0 ;\
+    cin>> deliv_Answer;\
+    \
+    \cf2 //Self haduoken?!?!?!???\cf0 \
+    \cf5 if\cf0  (deliv_Answer == \cf4 "no"\cf0  || deliv_Answer == \cf4 "No"\cf0 )\
+    \{\
+        cout<< \cf4 "\\n\\nThank you for shopping with us.\\n"\cf0 ;\
+        cout<< \cf4 "We hope you have a wonderful day!\\n"\cf0 ;\
+        Sleep(\cf6 500\cf0 );\
+       	cout<< \cf4 "\\n. "\cf0 ;\
+        Sleep(\cf6 500\cf0 );\
+   	    cout<< \cf4 ". "\cf0 ;\
+       	Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 ". \\n"\cf0 ;\
+   	    cout<< \cf4 "Please quit."\cf0 ;\
+       	system(\cf4 "pause"\cf0 );\}\
+       	system(\cf4 "pause"\cf0 );\
+    \
+    \cf5 if\cf0 (deliv_Answer==\cf4 "yes"\cf0 ||deliv_Answer==\cf4 "Yes"\cf0 )\
+    \{\
+    	system(\cf4 "cls"\cf0 );\
+        Sleep(\cf6 500\cf0 );\
+        cout<< \cf4 "\\n\\nGreat we will deliver these for you.\\n\\n"\cf0 ;\
+        \
+        \cf5 if\cf0  (tree_amount >=\cf6 5\cf0 )\
+        \{\
+            cout<< \cf4 "Because you are ordering more than 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "deliver cost will be $100.00 flat.\\n\\n"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright, here is the total for your delivery."\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_four*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal+max_deliv;				\cf2 //tree cost with delivery\cf0 \
+            total=total2*tax;					\cf2 //Total with tax \cf0 \
+            \
+            \cf2 //************************************CALCULATION WITH MAX DELIVERY\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_four;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<max_deliv;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \cf5 if\cf0  (tree_amount <=\cf6 5\cf0 )\
+        \{\
+            system(\cf4 "cls"\cf0 );\
+			cout<< \cf4 "\\nBecause you are ordering under 5 trees,\\n"\cf0 ;\
+            cout<< \cf4 "delivery cost will be $20.00 per tree."\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "\\nAlright, here is the total for your delivery\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+            subtotal=tree_four*tree_amount;\
+            total2=subtotal+d_per_tree;\
+            total=subtotal*tax;\
+            \
+            \cf2 //*******************CALCULATION WITH MAX DELIVERY*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_four;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery                   $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+        \}\
+        \
+        \
+    \}\
+    \
+        cout<< \cf4 "\\n\\nWould you like for us to plant your order as well?\\n"\cf0 ;\
+        cin>> plant_Answer;\
+        \
+        \cf2 //FINISH THEM!!!!\cf0 \
+        \cf5 if\cf0 (plant_Answer!=\cf4 "yes"\cf0  && plant_Answer!=\cf4 "Yes"\cf0 )\
+        \{\
+        	system(\cf4 "cls"\cf0 );\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "Alright, than just pay when you are ready.\\n"\cf0 ;\
+        	cout<< \cf4 "Thank you for choosing Green Fields Landscaping.\\n\\n"\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );\
+        \}\
+        \
+        \
+        \
+        \cf2 //*********************************************PLANT\cf0 \
+        \cf5 if\cf0 (plant_Answer==\cf4 "yes"\cf0  || plant_Answer==\cf4 "Yes"\cf0 )\
+        \{\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+        	system(\cf4 "cls"\cf0 );\
+        	Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "\\n. "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". "\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 ". \\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Alright. Let me begin to calculate the cost of everything.\\n\\n"\cf0 ;\
+            \
+            \
+            \
+            \
+            subtotal=tree_four*tree_amount;		\cf2 //How much each tree costs\cf0 \
+            total2=subtotal*\cf6 1.50\cf0 ;				\cf2 //tree cost with delivery & Planting\cf0 \
+            total=total2*tax;					\cf2 //total with tax \cf0 \
+            \
+            \
+            \
+            \cf2 //*******************CALCULATION WITH DELIVERY AND PLANTING*****************\cf0 \
+            cout<<\cf4 "\\nTree cost                  $"\cf0  <<tree_four;\
+            cout<<\cf4 "\\nAmount of Trees             "\cf0  <<tree_amount;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<subtotal;\
+            cout<<\cf4 "\\nDelivery & Planting        $"\cf0  <<d_per_tree;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nSubtotal                   $"\cf0  <<total2;\
+            cout<<\cf4 "\\nTax                        $"\cf0  <<tax;\
+            cout<<\cf4 "\\n                           _________"\cf0 ;\
+            cout<<\cf4 "\\nTotal                      $"\cf0  <<total;\
+            \
+            \
+            cout<<\cf4 "\\n\\nThis is your final total. Please pay us promptly to"\cf0  <<\cf4 "\\nenjoy your new trees.\\n"\cf0 ;\
+            cout<<\cf4 "Thank you for choosing Green Fields Landscaping!"\cf0 ;\
+			Sleep(\cf6 500\cf0 );\
+        	cout<< \cf4 "\\n. "\cf0 ;\
+	        Sleep(\cf6 500\cf0 );\
+    	    cout<< \cf4 ". "\cf0 ;\
+        	Sleep(\cf6 500\cf0 );\
+	        cout<< \cf4 ". \\n"\cf0 ;\
+    	    cout<< \cf4 "Please quit."\cf0 ;\
+        	system(\cf4 "pause"\cf0 );   \
+        \}\
+\}\
+\
+\
+\
+\
+\
+\
+\
+\cf2 /*************************\
+*******FULL PROGRAM*******\
+***************************/\cf0 \
+\cf5 int\cf0  main()\
+\{\
+\
+    \cf2 //BEGINING\cf0 \
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*\\n"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "H"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "e"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "l"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "l"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "o"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "!"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*\\n"\cf0 ;\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*"\cf0 ;\
+    Sleep(\cf6 50\cf0 );\
+    cout<<\cf4 "*\\n\\n"\cf0 ;\
+\
+    \
+    \
+	Sleep (\cf6 500\cf0 );\
+	cout<< \cf4 "I hope you are having a good day. What is your name?\\n"\cf0 ;\
+	cin>> first;\
+    \
+    \cf5 if\cf0  (first==\cf4 "V"\cf0  || first==\cf4 "Guy"\cf0  || first==\cf4 "guy"\cf0  || first==\cf4 "v"\cf0  || first==\cf4 "Faux"\cf0  || first==\cf4 "faux"\cf0  || first == \cf4 " "\cf0 )\
+    \{\
+        drugs();\
+        \cf5 return\cf0  \cf6 0\cf0 ;\
+    \}\
+    \
+    Sleep (\cf6 300\cf0 );\
+	cout<< \cf4 "\\nHello "\cf0  <<first << \cf4 ", are you ready to choose between the trees we offer?\\n"\cf0 ;\
+	cin>> second;\
+	system (\cf4 "cls"\cf0 );\
+    \
+    \cf2 //If not ready.\cf0 \
+    \cf5 if\cf0  (second == \cf4 "no"\cf0  && second == \cf4 "No"\cf0  && second != \cf4 "Yes"\cf0  && second != \cf4 "yes"\cf0 )\
+        \{\
+            cout<< \cf4 "Well, please open this program when you are ready\\n"\cf0 ;\
+            cout<< \cf4 "Thank you, come again"\cf0 ;\
+            \
+            \cf5 return\cf0  \cf6 0\cf0 ;\
+        \}\
+    \
+	system(\cf4 "cls"\cf0 );\
+	Sleep (\cf6 500\cf0 );\
+	\
+	\cf2 //HADUOKEN!!!!!\cf0 \
+	\cf5 if\cf0  (first == \cf4 "no"\cf0  || first == \cf4 "No"\cf0  || first == \cf4 "n"\cf0  || first == \cf4 "N"\cf0 )\
+		\{cout<< \cf4 "Alright, then please visit this program at a later time when you are completely sure.\\n"\cf0 ;\
+		cout<< first<<\cf4 ", I hope you have a wonderful day."\cf0 ; \
+		\cf5 return\cf0  \cf6 0\cf0 ;\}\
+		\
+	cout<< \cf4 "\\nPerfect! Well, these are the trees we have to offer "\cf0  <<first <<\cf4 ":\\n"\cf0 ;\
+	Sleep(\cf6 500\cf0 );\
+	cout<< \cf4 "A...........smaller than 3 feet tall.\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 "B...........3 to 5 feet tall.\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 "C...........6 to 8 feet tall.\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+    cout<< \cf4 "Or\\n"\cf0 ;\
+    Sleep(\cf6 300\cf0 );\
+	cout<< \cf4 "D...........greater than 8 feet tall.\\n"\cf0 ;\
+	Sleep(\cf6 300\cf0 );\
+	\
+	cout<< \cf4 "\\nWhat kind of tree would you like?\\n"\cf0 ;\
+    cout<< \cf4 "Please make sure to make your selection as diplayed.\\nThanks!\\n"\cf0 ;\
+	cin>> choice1;\
+	\
+    \
+    system(\cf4 "cls"\cf0 );\
+    Sleep(\cf6 500\cf0 );\
+	\cf2 //First choice\cf0 \
+	\cf5 switch\cf0 (choice1)\
+		\{\
+			\cf5 case\cf0  \cf6 'A'\cf0 : tree_One();\
+						\cf5 break\cf0 ;\
+			\cf5 case\cf0  \cf6 'B'\cf0 : tree_Two();\
+						\cf5 break\cf0 ;\
+			\cf5 case\cf0  \cf6 'C'\cf0 : tree_Three();\
+						\cf5 break\cf0 ;\
+            \cf5 case\cf0  \cf6 'D'\cf0 : tree_Four();\
+                        \cf5 break\cf0 ;\
+			\cf5 default\cf0 : cout<< \cf4 "Please select a tree using the letters A, B, C, or D \\nusing Capitol letters. \\n "\cf0 ;\
+		\}\
+	\
+    \cf2 //First choice AGAIN\cf0 \
+    \cf5 while\cf0  (choice1 != \cf6 'A'\cf0  && choice1 != \cf6 'B'\cf0  && choice1 != \cf6 'C'\cf0  && choice1 != \cf6 'D'\cf0 )\
+        \{\
+        cout<< \cf4 "\\nThese are the trees we have to offer "\cf0  <<first <<\cf4 ":\\n"\cf0 ;\
+            Sleep(\cf6 500\cf0 );\
+            cout<< \cf4 "A...........smaller than 3 feet tall.\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "B...........3 to 5 feet tall.\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "C...........6 to 8 feet tall.\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "Or\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            cout<< \cf4 "D...........greater than 8 feet tall.\\n"\cf0 ;\
+            Sleep(\cf6 300\cf0 );\
+            \
+        cout<< \cf4 "\\nWhat kind of tree would you like?\\n"\cf0 ;\
+        cin>> choice1;\
+        \
+        \cf5 switch\cf0 (choice1)\{\
+            \cf5 case\cf0  \cf6 'A'\cf0 : tree_One();\
+                \cf5 break\cf0 ;\
+            \cf5 case\cf0  \cf6 'B'\cf0 : tree_Two();\
+                \cf5 break\cf0 ;\
+            \cf5 case\cf0  \cf6 'C'\cf0 : tree_Three();\
+                \cf5 break\cf0 ;\
+            \cf5 case\cf0  \cf6 'D'\cf0 : tree_Four();\
+                \cf5 break\cf0 ;\
+            \cf5 default\cf0 : cout<< \cf4 "Please select a tree using the letters A, B, C, or D using Capitol letters. \\n "\cf0 ;\}\
+        Sleep(\cf6 1000\cf0 );\
+        system(\cf4 "cls"\cf0 );\
+		\}\
+	\cf2 //end\cf0 \
+	\cf5 return\cf0  \cf6 0\cf0 ;\}\
+}

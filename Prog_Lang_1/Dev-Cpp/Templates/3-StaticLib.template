@@ -1,0 +1,10 @@
+[Template]
+ver=1
+Name=Static Library
+Icon=StaticLib.ico
+Description=A static library (.a)
+Category=Basic
+
+[Project]
+UnitCount=0
+Type=2

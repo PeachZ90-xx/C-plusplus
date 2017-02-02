@@ -1,0 +1,29 @@
+# Project: basketball_Player
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = 
+CC       = 
+WINDRES  = 
+OBJ      = "player's\ height.o"
+LINKOBJ  = "player's height.o"
+LIBS     =
+INCS     =
+CXXINCS  =
+BIN      = basketball_Player.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+"player's\ height.o": player's\ height.cpp
+	$(CPP) -c "player's height.cpp" -o "player's height.o" $(CXXFLAGS)

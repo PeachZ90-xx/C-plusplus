@@ -1,0 +1,29 @@
+# Project: LoanQualification
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = loan_Qualify.o
+LINKOBJ  = loan_Qualify.o
+LIBS     = -L"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = loanQualification.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+loan_Qualify.o: loan_Qualify.cpp
+	$(CPP) -c loan_Qualify.cpp -o loan_Qualify.o $(CXXFLAGS)

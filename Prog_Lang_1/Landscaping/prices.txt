@@ -1,0 +1,4 @@
+Category 1: $39
+Category 2: $69
+Category 3: $99
+Category 4: $199

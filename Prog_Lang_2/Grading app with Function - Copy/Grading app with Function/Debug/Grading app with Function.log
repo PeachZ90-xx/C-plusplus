@@ -1,0 +1,50 @@
+﻿Build started 1/22/2014 12:46:46 AM.
+     1>Project "c:\Users\Alan\documents\Program 2\Grading app with Function\Grading app with Function\Grading app with Function.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\Grading app with Function.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Grading app with Function.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "Grading app with Function.cpp"
+         Grading app with Function.cpp
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(8): error C2143: syntax error : missing ';' before 'namespace'
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(8): error C2059: syntax error : ';'
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(13): error C2065: 'string' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(13): error C2146: syntax error : missing ';' before identifier 'first'
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(13): error C2065: 'first' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(13): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(18): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(19): error C2065: 'cin' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(19): error C2065: 'first' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(21): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(22): error C2065: 'cin' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(24): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(25): error C2065: 'cin' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(27): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(28): error C2065: 'cin' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(30): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(31): error C2065: 'cin' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(33): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(34): error C2065: 'cin' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(37): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(40): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(42): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(44): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(46): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(48): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(50): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(52): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(54): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(56): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(58): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(60): error C2065: 'lettergrade' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(63): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(65): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(67): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(69): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(71): error C2065: 'cout' : undeclared identifier
+     1>c:\users\alan\documents\program 2\grading app with function\grading app with function\grading app with function.cpp(71): error C2065: 'lettergrade' : undeclared identifier
+     1>Done Building Project "c:\Users\Alan\documents\Program 2\Grading app with Function\Grading app with Function\Grading app with Function.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.74

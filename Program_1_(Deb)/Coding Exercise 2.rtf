@@ -1,0 +1,162 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red65\green182\blue69;\red198\green124\blue72;\red219\green44\blue56;
+\red178\green24\blue137;\red0\green160\blue190;\red120\green109\blue196;}
+\margl1440\margr1440\vieww15580\viewh11320\viewkind0
+\deftab529
+\pard\tx529\pardeftab529\pardirnatural
+
+\f0\fs22 \cf2 \CocoaLigature0 //\cf1 \
+\cf2 //  main.cpp\cf1 \
+\cf2 //  coding_excersise2\cf1 \
+\cf2 //  This is an in class exercise answer sheet.\cf1 \
+\cf2 //\cf1 \
+\cf2 //  Created by Alan Trevino De Arcos on 2/15/15.\cf1 \
+\cf2 //  Copyright (c) 2015 Alan Trevino. All rights reserved.\cf1 \
+\cf2 //\cf1 \
+\
+\cf3 #include \cf4 <iostream>\cf3 \
+#include \cf4 <string>\cf3 \
+#include \cf4 <iomanip>\cf3 \
+#include \cf4 <time.h>\cf3 \
+#include \cf4 <ctime>\cf3 \
+#include \cf4 <cstdlib>\cf3 \
+#include \cf4 <math.h>\cf3 \
+\cf1 \
+\cf5 using\cf1  \cf5 namespace\cf1  \cf6 std\cf1 ;\
+\
+\cf5 int\cf1  main(\cf5 int\cf1  argc, \cf5 const\cf1  \cf5 char\cf1  * argv[]) \{\
+    \
+    \cf6 cout\cf1  << \cf4 "===========================\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Part             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          One              \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "===========================\\n\\n\\n\\n"\cf1 ;\
+    \
+    \cf5 double\cf1  r, R, Pi, volume;\
+    \
+    Pi = \cf7 3.1415\cf1 ;\
+    r = \cf7 4\cf1 ;\
+    R = \cf7 6\cf1 ;\
+    \
+    \
+    volume = ( \cf7 2\cf1  * ( ( \cf6 pow\cf1  ( Pi , \cf7 2\cf1  ) * R * ( \cf6 pow\cf1 ( r , \cf7 2\cf1 )) ) ) );\
+                    \
+    \cf6 cout\cf1  << \cf4 "The Volume of the torus is "\cf1  << volume << \cf4 "\\n\\n"\cf1 ;\
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "===========================\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Part             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Two              \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "===========================\\n\\n\\n\\n"\cf1 ;\
+    \
+    \
+     \
+    \cf6 cout\cf1  << \cf4 "X += 10; \\n"\cf1 ;\
+     \
+    \cf6 cout\cf1  << \cf4 "total += tax; \\n"\cf1 ;\
+     \
+    \cf6 cout\cf1  << \cf4 "inv -= shrinkage; \\n"\cf1 ;\
+     \
+    \cf6 cout\cf1  << \cf4 "num %= 6; \\n\\n"\cf1 ;\
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "===========================\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Part             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Three            \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "===========================\\n\\n\\n\\n"\cf1 ;\
+    \
+    \cf5 double\cf1  dollars1, dollars2;\
+    \
+    \cf6 cout\cf1  << \cf4 "Hoq many dollars do you want to convert to Euros?\\n"\cf1 ;\
+    \cf6 cin\cf1  >> dollars1;\
+    \cf2 // getline does not work on mac. Shame.\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "How many dollars do you want to convert to \'a5en?\\n"\cf1 ;\
+    \cf6 cin\cf1  >> dollars2;\
+    \
+    dollars1 /= \cf7 0.88\cf1 ;\
+    dollars2 /= \cf7 118.74\cf1 ;\
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "\\n\\n\\nIn Euros, you will get \'80"\cf1  << \cf6 fixed\cf1  << \cf6 showpoint\cf1  << \cf6 setprecision\cf1 (\cf7 2\cf1 ) << dollars1 << \cf4 ".\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "In \'a5en, you will get \'a5"\cf1   << \cf6 fixed\cf1  << \cf6 showpoint\cf1  << \cf6 setprecision\cf1 (\cf7 2\cf1 ) << dollars2 << \cf4 "\\n\\n\\n"\cf1 ;\
+    \
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "===========================\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Part             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Four             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "===========================\\n\\n\\n\\n"\cf1 ;\
+\
+    \
+    \cf5 double\cf1  cels, fahr, c_convert, f_convert;\
+    \
+    \cf6 cout\cf1  << \cf4 "What is the Fahrenheit temperature\\n"\cf1 ;\
+    \cf6 cin\cf1  >> fahr;\
+    \
+    \cf6 cout\cf1  << \cf4 "\\nWhat is the Celsius temperature?\\n"\cf1 ;\
+    \cf6 cin\cf1  >> cels;\
+    \
+    \
+    f_convert = ( ( ( \cf7 9\cf1  * cels ) / \cf7 5\cf1  ) + \cf7 32\cf1  );\
+    c_convert = ( ( (fahr - \cf7 32\cf1 ) * \cf7 5\cf1  ) / \cf7 9\cf1  );\
+    \
+    \cf6 cout\cf1  << \cf4 "\\n\\n"\cf1  << fahr << \cf4 "\'ba F converted to Celsius is "\cf1  << c_convert <<\cf4 "\'ba C.\\n"\cf1 ;\
+    \cf6 cout\cf1  << cels << \cf4 "\'ba C converted to Fahrenheit is "\cf1  << f_convert << \cf4 "\'ba F.\\n\\n\\n"\cf1 ;\
+    \
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "===========================\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Part             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Five             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "===========================\\n\\n\\n\\n"\cf1 ;\
+\
+    \
+    srand(seed);\
+    \cf5 int\cf1  num1, num2, user_ans, real_ans;\
+    \
+    num1 = srand(seed);\
+    num2 = srand(seed);\
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "What is the answer to the following equation?\\n"\cf1 ;\
+    \cf6 cout\cf1  << num1 <<\cf4 " + "\cf1  << num2 << \cf4 "\\n"\cf1 ;\
+    \cf6 cin\cf1  >> user_ans;\
+    \
+    real_ans = num1 + num2;\
+    \
+    \cf6 cout\cf1  << \cf4 "\\n\\n"\cf1  << \cf4 "Your answer was "\cf1  << user_ans;\
+    \cf6 cout\cf1  << \cf4 "\\n"\cf1  << \cf4 "The answer was "\cf1  << real_ans;\
+    \
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "===========================\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Part             \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "          Six              \\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "===========================\\n\\n\\n\\n"\cf1 ;\
+\
+    \
+    seed = time (\cf7 0\cf1 );\
+    \cf5 int\cf1  number1, number2, num3, num4, num5, num6, lucky;\
+    \
+    num1 = srand(seed) % \cf7 100\cf1  + \cf7 1\cf1 ;\
+    num2 = srand(seed)  % \cf7 100\cf1  + \cf7 1\cf1 ;\
+    num3 = srand(seed)  % \cf7 100\cf1  + \cf7 1\cf1 ;\
+    num4 = srand(seed)  % \cf7 100\cf1  + \cf7 1\cf1 ;\
+    num5 = srand(seed)  % \cf7 100\cf1  + \cf7 1\cf1 ;\
+    num6 = srand(seed)  % \cf7 100\cf1  + \cf7 1\cf1 ;\
+    lucky = srand(seed)  % \cf7 100\cf1  + \cf7 1\cf1 ;\
+    \
+    \cf6 cout\cf1  << number1 << \cf4 " "\cf1  << number2 << \cf4 " "\cf1  << num3 << \cf4 " "\cf1  << num4 << \cf4 " "\cf1  << num5 << \cf4 " "\cf1  << num6;\
+    \cf6 cout\cf1  << \cf4 "\\n"\cf1  << \cf4 "Lucky Number "\cf1  << lucky;\
+    \
+    \
+    \
+    \
+    \cf2 //===========================\cf1 \
+    \cf2 // No, I didn't do the extra\cf1 \
+    \cf2 // credit. Oh well. =]\cf1 \
+    \cf2 //===========================\cf1 \
+    \cf5 return\cf1  \cf7 0\cf1 ;\
+\}\
+}

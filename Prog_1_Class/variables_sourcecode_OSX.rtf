@@ -1,0 +1,194 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red65\green182\blue69;\red198\green124\blue72;\red219\green44\blue56;
+\red178\green24\blue137;\red0\green160\blue190;\red120\green109\blue196;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab529
+\pard\tx529\pardeftab529\pardirnatural
+
+\f0\fs22 \cf2 \CocoaLigature0 /*\
+main.cpp\
+variables_osx\
+\
+Created by Alan Trevino De Arcos on 9/14/14.\
+Copyright (c) 2014 Alan Trevino. All rights reserved.\
+\
+This program will teach exactly where and when to use different type of variables\
+ \
+ */\cf1 \
+\
+\cf3 #include \cf4 <iostream>\cf3 \
+#include \cf4 <string>\cf3 \
+\cf2 //#include <windows.h>\cf1 \
+\cf3 #include \cf4 <unistd.h>\cf3 \
+\cf5 using\cf1  \cf5 namespace\cf1  \cf6 std\cf1 ;\
+\
+\cf5 int\cf1  main(\cf5 int\cf1  arg, \cf5 const\cf1  \cf5 char\cf1  * argv[])\
+\{\
+\
+    \cf2 //DECLARE!\cf1 \
+    \cf5 int\cf1  example_one;\
+    \cf5 short\cf1  example_two;\
+    \cf5 float\cf1  example_three;\
+    \cf5 char\cf1  example_four;\
+    \cf6 string\cf1  example_five;\
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "Hello! This program will help teach you exactly when to use\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "different variable types. It is important to know which ones\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "exist and what they can do.\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(800)\cf1 \
+    \cf6 cout\cf1  << \cf4 "One thing you should know before we start is that all\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "data types CANNOT have the variable start with a\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "digit or have a symbol excempt for underscore ( _ )\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000);\cf1 \
+    \cf6 system\cf1 (\cf4 "pause"\cf1 );\
+    \
+    \
+    \cf2 //*****THE INT EXPLANATION\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "Let's take INT for example.\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "Please type in as many numbers for INT.\\n"\cf1 ;\
+    \cf6 cin\cf1  >> example_one;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000);\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "\\n\\n INT is "\cf1  << example_one << \cf4 "\\n\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "The INT data type can store a 10 digit number\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "and only takes up 4 bytes of space.\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "This is the most common variable that is used and\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "is great for non-decimal numbers, basic operations, etc.\\\'94n\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "An example of how far INT stretches is this.\\n\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "-2,147,483,648 to +2,147,483,648\\n\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "The variable type LONG is the same as INT.\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000);\cf1 \
+    \cf6 cout\cf1  << \cf4 "There is also UNSIGNED INT which gets everyhing from\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "0 to 4,294,967,295. Look! No negatives! =D\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 2\cf1 );\
+    \cf2 //Sleep(2000);\cf1 \
+    \cf6 system\cf1 (\cf4 "pause"\cf1 );\
+    \
+    \
+    \
+    \
+    \
+    \cf2 //******* THE SHORT EXPLANATION\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "The next variable is SHORT.\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "Short is great if you're not using big numbers.\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "Please type in as many numbers as you want.\\n"\cf1 ;\
+    \cf6 cin\cf1  >> example_two;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000;\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "Short is "\cf1  << example_two <<\cf4 "\\n\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "The SHORT data type can only hold a 5 digit number\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "and takes up 2 bytes of space!\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "SHORT isn't as popular as INT because it only holds\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "half of INT, but it can be very useful when using small numbers\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "An Example of how much SHORT can hold is from -32,768 to +32,768\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000);\cf1 \
+    \cf6 cout\cf1  << \cf4 "There is also a UNSIGNED SHORT, same a SHORT but without negative\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "numbers. 0 to 65,535\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 2\cf1 );\
+    \cf2 //Sleep(2000);\cf1 \
+    \cf6 system\cf1 (\cf4 "pause"\cf1 );\
+    \
+    \
+    \
+    \cf2 //******** THE FLOAT EXPLANATION\cf1 \
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "The FLOAT data type can be used to define variables that\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "can hold real numbers. This data type includes the decimal\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "point, so this is ideal for currency variables, and science\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "equations. Go ahead and enter a number with a decimal.\\n"\cf1 ;\
+    \cf6 cin\cf1  >> example_three;\
+    \cf6 cout\cf1  << \cf4 "\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000)\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "The number you input was "\cf1  << example_three << \cf4 "\\n\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "If you try to assign a decimal point to any other\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "data type, it will only record the number BEFORE the\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "decimal\\n\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 2\cf1 );\
+    \cf2 //Sleep(2000)\cf1 \
+    \cf6 system\cf1 (\cf4 "pause"\cf1 );\
+    \
+    \
+    \cf2 //******** THE DOUBLE EXPLANATION\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "The DOUBLE & LONG DOUBLE data type is similar to the FLOAT data type\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "in uses. Except it is prefered when making programs for scientists\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "because it can hold numbers that have are extremely large.\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "Take 1.7 E-308 as an example. That means you'll move the\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "decimal 308 times!\\n\\n\\n"\cf1 ;\
+    \cf6 system\cf1 (\cf4 "pause"\cf1 );\
+    \
+    \
+    \
+    \cf2 //******* THE CHAR EXPLANATION\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "This section is dedicated to the CHAR variable.\\n\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "CHAR is great when you need your users to enter quick\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "one letter responces. Especially when it is a Y or n answer\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000);\cf1 \
+    \cf6 cout\cf1  << \cf4 "For example, enter your name.\\n"\cf1 ;\
+    \cf6 cin\cf1  >> example_four;\
+    \cf6 cout\cf1  << \cf4 "\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(800);\cf1 \
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "Your input was "\cf1  << example_four <<\cf4 "\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "CHAT will only take one letter and save it.\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "If a user inputs more than one letter, CHAR will\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "only catch the first letter that was entered.\\n\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(1000);\cf1 \
+    \cf6 system\cf1 (\cf4 "pause"\cf1 );\
+    \
+    \
+    \
+    \
+    \
+    \cf2 //******** THE STRING EXPLANATION\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "What is your name again?\\n"\cf1 ;\
+    \cf6 cin\cf1  >> example_five;\
+    \cf6 cout\cf1  << \cf4 "\\n\\n"\cf1 ;\
+    \cf6 sleep\cf1 (\cf7 1\cf1 );\
+    \cf2 //Sleep(800);\cf1 \
+    \
+    \cf6 cout\cf1  << \cf4 "Your name is "\cf1  << example_five << \cf4 "\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "Using the STRING variable, I can catch your name\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "and output it back to you. It is very easy to utilize\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "STRING with all of your programming. It is the easiest\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "variable to incorporate with your program. It adds a human\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "aspect to your program, and makes it much more interesting\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "for your users. You must include <string> to your program\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "in order to be able to use it\\n\\n"\cf1 ;\
+    \cf6 system\cf1 (\cf4 "pause"\cf1 );\
+    \
+    \
+    \
+    \
+    \cf6 cout\cf1  << \cf4 "Thank you for downloading and going through this program!\\n"\cf1 ;\
+    \cf6 cout\cf1  << \cf4 "It is your to keep, fix, break, and rewrite. =]\\n\\n\\n"\cf1 ;\
+    \
+    \
+    \
+    \
+    \cf5 return\cf1  \cf7 0\cf1 ;\
+\}\
+\
+\
+\
+\
+\cf2 //There is nothing past this line of code. Oh well. =/}
